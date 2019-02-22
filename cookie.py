@@ -31,8 +31,6 @@ async def main(username, pwd):
         cookies = await get_cookie(page)
         print(cookies)
         return cookies
-        await page.close()
-        await browser.close()
     else:
         print('出现异常')
         if Error == '用户名或密码错误。查看帮助':
@@ -48,8 +46,6 @@ async def main(username, pwd):
                 cookies = await get_cookie(page)
                 print(cookies)
                 return cookies
-                await page.close()
-                await browser.close()
             else:
                 await page.close()
                 await browser.close()
