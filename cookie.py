@@ -30,6 +30,8 @@ async def main(username, pwd):
         print('验证码和账号密码正确')
         cookies = await get_cookie(page)
         print(cookies)
+        await page.close()
+        await browser.close()
         return cookies
     else:
         print('出现异常')
@@ -45,6 +47,8 @@ async def main(username, pwd):
             if flag == 1:
                 cookies = await get_cookie(page)
                 print(cookies)
+                await page.close()
+                await browser.close()
                 return cookies
             else:
                 await page.close()
@@ -88,8 +92,9 @@ async def Captcha_Crack(page=None):
             return None
         else:
             print('账号user:{0}出错'.format(username))
-
             '''删除这条数据'''
+            await page.close()
+            await browser.close()
             return 2
 
 def input_time_random():
